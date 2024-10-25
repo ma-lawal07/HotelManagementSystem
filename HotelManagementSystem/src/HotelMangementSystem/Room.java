@@ -59,6 +59,22 @@ public void setPrice(double price) {
 	this.price = price;
 }
  
+public String getType() {
+	return type;
+}
+
+public void setType(String type) {
+	this.type = type;
+}
+
+public ArrayList<String> getReservedDates() {
+	return reservedDates;
+}
+
+public void setReservedDates(ArrayList<String> reservedDates) {
+	this.reservedDates = reservedDates;
+}
+
 public void Reserve(LocalDate startDate, LocalDate finishDate) {
 	DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 	for (LocalDate date=startDate;date.isBefore(finishDate);date=date.plusDays(1)) {
@@ -70,7 +86,7 @@ public void Reserve(LocalDate startDate, LocalDate finishDate) {
 public boolean isReserved(LocalDate startDate, LocalDate finishDate) {
 	boolean b = false;
 	DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-	for(LocalDate date = startDate;date.isBefore(finishDate);date=date.plusDays(1)) {
+	for(LocalDate date = startDate;date.isBefore(finishDate);date = date.plusDays(1)) {
 		String d = date.format(formatter);
 		if(reservedDates.contains(d)) 
 			b = true;
@@ -79,6 +95,14 @@ public boolean isReserved(LocalDate startDate, LocalDate finishDate) {
 	
 	return b;
 }
-   
+
+public void print() {
+	System.out.println("id: " + id);
+	System.out.println("Floor: " + floor);
+	System.out.println("Capacity:" +capacity);
+	System.out.println("Type: " + type);
+	System.out.println("Description: " + description);
+	System.out.println("Price: " + price);
+}
    
 }
