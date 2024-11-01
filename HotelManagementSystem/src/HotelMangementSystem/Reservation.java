@@ -1,6 +1,7 @@
 package HotelMangementSystem;
 
 import java.time.LocalDate;
+import java.time.Period;
 import java.time.format.DateTimeFormatter;
 
 public class Reservation {
@@ -58,6 +59,23 @@ public class Reservation {
 	}
 	public void setRoom(Room room) {
 		this.room = room;
+	}
+	
+	public void print() {
+		System.out.println("\n********************************");
+		System.out.println("Arrival Date: " + arrivalDate.format(formatter));
+		System.out.println("Depature Date: " + departureDate.format(formatter));
+		int days = Period.between(arrivalDate, departureDate).getDays();
+		System.out.println(days + "Days");
+		System.out.println("******* Guest informations *******");
+		guest.print();
+		System.out.println("******* Room informations *******");
+		room.print();
+		System.out.println("*********** Total **************");
+		double price = days*room.getPrice();
+		System.out.println("Price: "+ price);
+		System.out.println("Total after discout: "+ this.price);
+		System.out.println("\n********************************");
 	}
 
 }

@@ -18,7 +18,7 @@ public class Main {
 		reservations = new ArrayList<>();
 		
 		int i = 0;
-		while (i!=16) {
+		while (i!=17) {
 		System.out.println("Welcome to Hotel Maagement System");
 		System.out.println("1.Add new room");
 		System.out.println("2. Show all rooms");
@@ -30,12 +30,13 @@ public class Main {
 		System.out.println("8. Create new reservation");
 		System.out.println("9. Show all reservations");
 		System.out.println("10. Get reservation by guest name");
-		System.out.println("11. Get reservation by id");
+		System.out.println("11. Get reservation by guest id");
 		System.out.println("12. Edit reservation");
-		System.out.println("13. Add new Employee");
-		System.out.println("14. Show all employees");
-		System.out.println("15. Edit employee data");
-		System.out.println("16. Quit");
+		System.out.println("13. Pay reservation");
+		System.out.println("14. Add new Employee");
+		System.out.println("15. Show all employees");
+		System.out.println("16. Edit employee data");
+		System.out.println("17. Quit");
 		
 		Scanner scanner = new Scanner(System.in);
 		
@@ -66,6 +67,16 @@ public class Main {
 		case 8:
 			ReservationsController.createNewReservation(guests,rooms, reservations, scanner);
 			break;
+		case 9:
+			ReservationsController.showAllReservations(reservations, scanner);
+			break;
+		case 10:
+			ReservationsController.getReservationbyGuestName(reservations, scanner);
+			break;
+		case 11:
+			ReservationsController.getReservationbyGuestId(reservations, scanner);
+		case 12:
+			ReservationsController.editReservation();
 		}
 		}
 		
